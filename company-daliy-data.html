@@ -1,0 +1,87 @@
+<div ng-controller="chartCtrl">
+    <div class="m-crumbs">您当前的位置：<a class="m-link" href="javascript:;">节点主体备案</a></div>
+    <div class="chart">
+        <div class="control-group m-tilte-checked">
+            <label class="checkbox-inline">
+                <input type="radio" name="optionsRadiosinline" id="optionsRadios3" ng-model="type" value="1" ng-checked="true" ng-change="radioChange(1)"> <em>按时间</em>
+            </label>
+            <label class="checkbox-inline">
+                <input type="radio" name="optionsRadiosinline" id="optionsRadios4" ng-model="type" value="2" ng-change="radioChange(2)"><em>按类型</em>
+            </label>
+            <div class="btn-group"  role="group" ng-init="flag=true" ng-show="flag">
+                <a href="javascript:;" class="btn btn-default active" ng-click="rangTimerChange(7,$event)">最近一周</a>
+                <a href="javascript:;" class="btn btn-default" ng-click="rangTimerChange(30,$event)">最近一月</a>
+                <a href="javascript:;" class="btn btn-default">自定义</a>
+            </div>
+        </div>
+        <!-- <button class="btn btn-defalut" ng-click="changData()">click me</button> -->
+        <div class="chart-canvas" e-chart ui-options="{tooltip: {show: true},
+            legend: {
+                data: ['屠宰企业','批发市场','零售市场','超市','团体消费单位'],
+                left:20
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: {{xAxisData}}   
+            	}
+            ],
+            grid:{
+                left:60
+            },
+            yAxis: [
+            {
+            type: 'value'
+            }
+            ],
+            series: [
+            {
+            'name': '屠宰企业',
+            'type': 'line',
+            'data': {{data1}},
+            'itemStyle':{
+                'normal':{
+                    'color':'#0b97d4'
+                }
+            }
+            },
+            {
+            'name': '批发市场',
+            'type': 'line',
+            'data': {{data2}},
+            'itemStyle':{
+                'normal':{
+                'color':'#fa682d'
+                }
+            }
+            },{
+            'name': '零售市场',
+            'type': 'line',
+            'data': {{data3}},
+            'itemStyle':{
+                'normal':{
+                'color':'#70bf64'
+                }
+            }
+            },{
+            'name': '超市',
+            'type': 'line',
+            'data': {{data4}},
+            'itemStyle':{
+                'normal':{
+                'color':'#ffcb38'
+                }
+            }
+            },{
+            'name': '团体消费单位',
+            'type': 'line',
+            'data': {{data5}},
+            'itemStyle':{
+                'normal':{
+                'color':'#cdcdcd'
+                }
+            }
+            }],
+             backgroundColor:'#fff'}"></div>
+    </div>
+</div>
