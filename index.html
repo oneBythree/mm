@@ -35,7 +35,7 @@
                 <!--一级菜单-->
                 <ul id="list">
                     <li>
-                        <a href="#/goods" class="item list1 active" data-level="0-0-0"><span>追溯管理后台</span> <i class="iconfont icon-submenu"></i></a>
+                        <a href="#/goods" class="item list1" data-level="0-0-0"><span>追溯管理后台</span> <i class="iconfont icon-submenu"></i></a>
                         <ul class="sub1">
                             <li>
                                 <a href="#" class="item list2" data-level="0-0-1">
@@ -183,17 +183,18 @@
         sessionStorage.setItem('silderLevel',level);
     });
     
-	$(document).ready(function(){
-		var level = sessionStorage.getItem('silderLevel');
+    $(document).ready(function () {
+        var sLevel = sessionStorage.getItem('silderLevel');
+        var level = (sLevel == undefined || sLevel == '')? '0-0-0' : sLevel;
+	    console.log(sessionStorage.getItem('silderLevel'));
 		var thisEl = $("[data-level="+level+"]");	
-		$('.sub1').hide();
+		$('.sub1').not($("[data-level=" + level + "]").parents('.sub1')).hide();
+		$("[data-level=" + level + "]").parents('.sub1,.sub2').show()
 		$('#list a').removeClass('active');
 		thisEl.addClass('active');
-		$("[data-level="+level+"]").parents('.sub1,.sub2').slideDown();
 		if(thisEl.next().hasClass('sub2')||thisEl.next().hasClass('sub1')){
-			thisEl.next().slideDown();
+			thisEl.next().show();
 		}
-		
 	})
     </script>
 </body>
