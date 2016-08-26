@@ -62,7 +62,7 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider, $loca
         .otherwise({
             redirectTo: '/goods'
         });
-        // $locationProvider.html5Mode(true);
+        //$locationProvider.html5Mode(true);
 }]);
 
 

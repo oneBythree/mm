@@ -23,6 +23,7 @@
 </head>
 
 <body ng-app="MyApp">
+<<<<<<< HEAD
 
 <div class="container-index ">
     <!-- 侧边栏 -->
@@ -38,6 +39,53 @@
                 <li>
                     <a href="#/login/index" class="item list1 active" data-level="0-0-0"><span>追溯管理后台</span> <i class="iconfont icon-submenu"></i></a>
                     <ul class="sub1">
+=======
+    <div class="container-index ">
+        <!-- 侧边栏 -->
+        <div id="" class="sideBar">
+            <div class="logo-info">
+                <h2>E追溯logo</h2>
+                <p>北京E追溯管理平台</p>
+            </div>
+            <!--折叠菜单-->
+            <div id="listshow" class="sidemenu">
+                <!--一级菜单-->
+                <ul id="list">
+                    <li>
+                        <a href="#/goods" class="item list1" data-level="0-0-0"><span>追溯管理后台</span> <i class="iconfont icon-submenu"></i></a>
+                        <ul class="sub1">
+                            <li>
+                                <a href="#" class="item list2" data-level="0-0-1">
+                                    <i class="iconfont icon-nav"></i><span>物品管理 </span>
+                                    <i class="iconfont icon-right-arrow fr"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#/rule" class="item list2"  data-level="0-0-2"> <i class="iconfont icon-rule"></i><span>解码规则</span><i class="iconfont icon-right-arrow fr"></i></a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="item list2" data-level="0-0-3">
+                                    <i class="iconfont icon-tracking"></i>
+                                    <span>追溯信息</span>
+                                    <i class="iconfont icon-right-arrow fr"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="item list2"  data-level="0-0-4">
+                                    <i class="iconfont icon-logsearch"></i>
+                                    <span>用户日志查询</span>
+                                    <i class="iconfont icon-right-arrow fr"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" class="item list2"  data-level="0-0-5">
+                                    <i class="iconfont icon-user"></i>
+                                    <span>账号管理</span>
+                                    <i class="iconfont icon-right-arrow fr"></i>
+                                </a>
+                            </li>
+                        </ul>
+>>>>>>> e02d89b6b8ad69ccd9dbaf633981f06f41f7fb61
                         <li>
                             <a href="goods.html" class="item list2" data-level="0-0-1">
                                 <i class="iconfont icon-nav"></i><span>物品管理 </span>
@@ -164,7 +212,44 @@
     <script type="text/javascript" src="scripts/controllers/goods-add.js"></script>
     <script type="text/javascript" src="scripts/controllers/rule.js"></script>
     <script type="text/javascript" src="scripts/controllers/company-daily-data.js"></script>
+<<<<<<< HEAD
     <script type="text/javascript" src="scripts/jsplug/main.js"></script>
+=======
+    <script type="text/javascript">
+    $('#listshow a.item').on('click', function(event) {
+        $('#listshow a.item').removeClass('active');
+        $(this).addClass('active');
+        var curele = $(this).nextAll('ul');
+        var thisList1 = $(this).parents('.sub1');
+        $('.sub1').not(thisList1).slideUp();
+        if (curele !== null) {
+            if (curele.is(':hidden')) {
+                curele.slideDown();
+            } else {
+                curele.slideUp();
+            };
+        };
+        sessionStorage.removeItem("silderLevel");
+        var level = $(this).attr('data-level');
+        console.log(level);
+        sessionStorage.setItem('silderLevel',level);
+    });
+    
+    $(document).ready(function () {
+        var sLevel = sessionStorage.getItem('silderLevel');
+        var level = (sLevel == undefined || sLevel == '')? '0-0-0' : sLevel;
+	    console.log(sessionStorage.getItem('silderLevel'));
+		var thisEl = $("[data-level="+level+"]");	
+		$('.sub1').not($("[data-level=" + level + "]").parents('.sub1')).hide();
+		$("[data-level=" + level + "]").parents('.sub1,.sub2').show()
+		$('#list a').removeClass('active');
+		thisEl.addClass('active');
+		if(thisEl.next().hasClass('sub2')||thisEl.next().hasClass('sub1')){
+			thisEl.next().show();
+		}
+	})
+    </script>
+>>>>>>> e02d89b6b8ad69ccd9dbaf633981f06f41f7fb61
 </body>
 
 </html>

@@ -79,7 +79,7 @@ input[type=checkbox],
   border-radius: 1em;
   }
   input[type=checkbox]:checked::after {
-  content: url(//ssl.gstatic.com/ui/v1/menu/checkmark.png);
+  content: url(../images/checkmark.png);
   display: block;
   position: absolute;
   top: -6px;
