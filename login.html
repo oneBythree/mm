@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myLogin">
+
+<head>
+    <meta charset="UTF-8">
+    <title>追溯数据交换系统</title>
+    <link rel="shortcut icon" href="images/icon2.ico">
+    <link rel="stylesheet" href="font/iconfont.css">
+    <link rel="stylesheet" href="styles/login.css">
+</head>
+
+<body>
+    <div class="login-header">
+        <div class="login-warpper-center">
+            <span class="logo"></span>
+            <strong>追溯数据交换系统</strong>
+        </div>
+    </div>
+    <div class="login-main">
+        <div class="login-warpper-center">
+            <div class="login-fixed-height">
+                <img src="images/login-bg2.png" style="height:100%;width:auto">
+                <div class="login-form">
+                    <form name="goodsAddForm">
+                        <dl>
+                            <dt class="title">
+                                <strong>用户登录</strong>
+                                <span>没有账号？<a href="javascript:;" class="m-link">立即注册</a></span>
+                            </dt>
+                            <dd class="form-group first">
+                                <span class="iconfont-wapper"><i class="iconfont icon-info"></i></span>
+                                <input id="username" type="text" placeholder="用户名">
+                            </dd>
+                            <dd class="form-group">
+                                <span class="iconfont-wapper"><i class="iconfont icon-pwd"></i></span>
+                                <input id="password" type="password" placeholder="密码">
+                            </dd>
+                            <dt class="remember">
+                                <label for="rr">
+                                    <input id="rmdCheckBox" name="rr" type="checkbox">&nbsp;自动登录</label> <a href="javascript:;" class="fr">忘记密码？</a></dt>
+                            <dd>
+                                <button class="login-submit">登陆</button>
+                            </dd>
+                            <dd class="err"></dd>
+                        </dl>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="login-footer">2016 All rights reserved.北京志恒达科技有限公司</div>
+    <script type="text/javascript" src="scripts/jslib/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="scripts/jsplug/cookie.js"></script>
+    <script type="text/javascript">
+    $('.login-submit').on('click', function(event) {
+        var username = $('#username').val();
+        var password = $('#password').val();
+        //用户名
+        if (username == '' || username == undefined) {
+            $('.err').text('用户名不能为空!');
+            $('#username').parent().addClass('has-error');
+            $('#username').focus();
+            return false;
+        }
+        //密码
+        if (password == '' || password == undefined) {
+            $('.err').text('密码不能为空!');
+            $('#password').parent().addClass('has-error');
+            $('#password').focus();
+            return false;
+        }
+
+
+        //ajax后台请求表单
+        $.ajax({
+            url: '/api/userinfo',
+            type: 'POST',
+            data: {
+                'username': username,
+                'password': password
+            },
+            success: function(data) {
+                if (data == "ok") { //验证成功跳转首页
+                    if ($("#rmdCheckBox").checked) {//如果选择记住密码加cookie
+                        setCookie("userName", $("#userName").value, 24*30, "/");
+                        setCookie("password", $("#password").value, 24*30, "/");
+                    }
+                    window.location.replace = 'iframe_index.html';
+                } else {
+                    $('#username').val('');
+                    $('#password').val('');
+                    $('#username').focus();
+                    $('.err').text('用户名或密码错误！');
+                }
+            }
+        });
+    });
+
+    removeErrClass();
+
+
+    //去边框错误颜色和错误提示
+    function removeErrClass() {
+
+        oneErrClass($('#username'));
+        oneErrClass($('#password'));
+
+        function oneErrClass(el) {
+            el.on('keyup change', function(event) {
+                var vals = $(event.target).val();
+                if (vals != '') {
+                    $(event.target).parent().removeClass('has-error');
+                    $('.err').text('');
+                } else {
+                    $(event.target).parent().addClass('has-error');
+                }
+            });
+        }
+    }
+    </script>
+</body>
+
+</html>
