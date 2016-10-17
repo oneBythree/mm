@@ -10,6 +10,11 @@
     <script type="text/javascript" src="scripts/jslib/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/sweetalert-dev.min.js"></script>
+    <style type="text/css">
+    .info-manager {
+        display: none;
+    }
+    </style>
 </head>
 
 <body>
@@ -118,12 +123,12 @@
                 <ol>
                     <li class="info clearfix">
                         <em class="test-user fl"></em>
-                        <span class="fr">你好好好<span class="caret"></span></span>
+                        <span class="fr jsDrop">你好好好<span class="caret"></span></span>
                         <div class="info-manager">
                             <a href="javascript:;">
                                 <i class="iconfont icon-setting middle"></i>
                                 <span class="middle">改用户密码</span></a>
-                            <a href="javascript:;">
+                            <a href="javascript:;" id="exit">
                                 <i class="iconfont icon-power"></i>
                                 <span class="middle">退出系统</span>
                             </a>
@@ -138,6 +143,23 @@
     </div>
     <script type="text/javascript" src="scripts/jsplug/main.js"></script>
     <script type="text/javascript">
+
+    //个人信息弹窗
+    $('.info span.fr').on('click', function(event) {
+        if ($('.info-manager').is(':hidden')) {
+            $('.info-manager').show();
+        } else {
+            $('.info-manager').hide();
+        }
+
+    });
+
+    $(document).on('click', function(event) {
+        if (!$('.info-manager').is(':hidden') && !$(event.target).hasClass('jsDrop')) {
+            $('.info-manager').hide();
+        }
+    });
+
     // 退出弹窗
     $('#exit').on('click', function(event) {
         swal({
@@ -149,6 +171,7 @@
             closeOnConfirm: false
         }, function() {
             //退出的操作
+            window.location.href = 'login.html';
         });
     });
     </script>

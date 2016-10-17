@@ -8,7 +8,7 @@
             <label class="checkbox-inline">
                 <input type="radio" name="optionsRadiosinline" id="optionsRadios4" ng-model="type" value="2" ng-change="radioChange(2)"><em>按类型</em>
             </label>
-            <div class="btn-group"  role="group" ng-init="flag=true" ng-show="flag">
+            <div class="btn-group" role="group" ng-init="flag=true" ng-show="flag">
                 <a href="javascript:;" class="btn btn-default active" ng-click="rangTimerChange(7,$event)">最近一周</a>
                 <a href="javascript:;" class="btn btn-default" ng-click="rangTimerChange(30,$event)">最近一月</a>
                 <a href="javascript:;" class="btn btn-default">自定义</a>
@@ -24,7 +24,7 @@
                 {
                     type: 'category',
                     data: {{xAxisData}}   
-            	}
+                }
             ],
             grid:{
                 left:60
