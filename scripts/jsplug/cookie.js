@@ -9,6 +9,9 @@ function setCookie(name, value, hours, path) {
     document.cookie = name + "=" + value + _expires + path;
 }
 
+
+
+
 //获取cookie值
 function getCookieValue(name) {
     var name = escape(name);

@@ -45,9 +45,11 @@
 
 //提交一列的表单
 form.m-line-form {
-    padding: $num30 0;
+    padding: $num30 0 0 0;
+    div.form-group{
+        margin-bottom: $num30;
+    }
 }
-
 // 添加标签
 div.add-select-tag {
     position: relative;
@@ -350,7 +352,10 @@ div.m-file {
         font-size: 14px;
     }
     form.m-line-form {
-        padding: $num30*.8 0;
+        padding: $num30*.8 0 0 0;
+        div.form-group,.btn{
+            margin-bottom: $num30*.8;
+        }
     }
     div.add-select-tag {
         @include funcHeight(28px);

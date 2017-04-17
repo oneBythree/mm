@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E追溯工具页-三方插件</title>
+    <link rel="stylesheet" type="text/css" href="styles/base.css">
+    <link rel="shortcut icon" href="images/icon2.ico">
+    <link href="styles/base/examples.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/base/daterangepicker-bs3.min.css">
+    <link href="bootstrap/select/css/bootstrap-select.min.css" rel="stylesheet">
+    <script type="text/javascript" src="scripts/jslib/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/jslib/vue.min.js"></script>
+    <script type="text/javascript" src="nice-validator/jquery.validator.min.js?local=en"></script>
+    <script type="text/javascript" src="scripts/jsplug/base.js"></script>
+    <script type="text/javascript" src="bootstrap/js/sweetalert-dev.min.js"></script>
+    <script type="text/javascript" src="scripts/jsplug/datepicker.js"></script>
+</head>
+
+<body id="top" style="background: #fff!important;">
+    <div class="navbar navbar-default navbar-fixed-top " role="navigation ">
+        <div class="container ">
+            <!-- Collapsed navigation -->
+            <div class="navbar-header ">
+                <!-- Expander button -->
+                <button type="button " class="navbar-toggle " data-toggle="collapse " data-target=".navbar-collapse ">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- Main title -->
+                <a class="navbar-brand " href=".. ">E追溯工具页</a>
+            </div>
+            <!-- Expanded navigation -->
+            <div class="navbar-collapse collapse ">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav ">
+                    <li>
+                        <a href="tool.html">起步</a>
+                    </li>
+                    <li>
+                        <a href="iconfont.html">图标库</a>
+                    </li>
+                    <li class="">
+                        <a href="authorplug.html">三方插件</a>
+                    </li>
+                    <li class="">
+                        <a href="myplug.html">自定义插件</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">表单提交</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <section class="jumbotron">
+        <div class="container">
+            <p id="download-cdn">E追溯管理平台三方插件引用， <strong>注意！！!</strong>路径以自己项目根目录为准</p>
+        </div>
+    </section>
+    <div class="container">
+        <div class="col-md-3">
+            <div class="bs-sidebar hidden-print affix-top" role="complementary">
+                <ul class="nav bs-sidenav">
+                    <li class="main">
+                        <a href="#postAll">提交整个表单</a>
+                    </li>
+                    <li class="main">
+                        <a href="#postUnAll">提交部分表单</a>
+                    </li>
+                </ul>
+                <a class="back-to-top" href="#top" style="display: block;
+        padding: 5px 20px;">
+              返回顶部
+            </a>
+            </div>
+        </div>
+        <div class="col-md-9" role="main">
+            <h3 id="postAll">提交整个表单</h3>
+            <form class="form-horizontal m-h-form" id="form1" data-validator-option="{theme:'bootstrap', timely:2, stopOnError:true}" action="register.php">
+                <div class="form-group">
+                    <label for="firstname" class="col-sm-2 control-label">货运代码</label>
+                    <div class="col-sm-10 ">
+                        <input name="goodsName" class="form-control" type="text" maxlength="10" data-rule="required;id" data-rule-id="[/^\d{6}$/, '请填写6位数字货运代码']" data-msg-required="请输入货运代码" />
+                        <i class="red">*</i>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="firstname" class="col-sm-2 control-label">日期</label>
+                    <div class="col-sm-10 ">
+                        <div class="m-icon-date form-control">
+                            <span for="date1"><i class="iconfont icon-riqi"></i></span>
+                            <input id="date1" bs-Datepicker type="text" class="" placeholder="请选择时间段" readonly data-rule="required;" data-msg-required="日期必填" />
+                        </div>
+                        <i class="red">*</i>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="firstname" class="col-sm-2 control-label">当前位置</label>
+                    <div class="col-sm-10 ">
+                        <select class="form-control selectpicker" name="nowaddress" data-rule="required" data-msg-required="请选择当前位置" placeholder="当前位置">
+                            <option value="">请选择</option>
+                            <option value="1">测试1</option>
+                            <option value="2">测试2</option>
+                            <option value="3">测试3</option>
+                            <option value="4">测试4</option>
+                        </select>
+                        <i class="red">*</i>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="firstname" class="col-sm-2 control-label">目的地</label>
+                    <div class="col-sm-10 ">
+                        <select class="form-control selectpicker" name="lastaddress" data-rule="required" data-msg-required="请选择目的地" placeholder="目的地">
+                            <option value="">请选择</option>
+                            <option value="1">测试1</option>
+                            <option value="2">测试2</option>
+                            <option value="3">测试3</option>
+                            <option value="4">测试4</option>
+                        </select>
+                        <i class="red">*</i>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="firstname" class="col-sm-2 control-label">活动号</label>
+                    <div class="col-sm-10 ">
+                        <input name="goodsName" class="form-control" type="text" maxlength="10">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"></label>
+                    <div class="col-sm-10 clearfix ">
+                        <a href="javascript:history.go(-1);" class="btn m-btn-cancel ">取消</a>
+                        <button class="btn m-btn-right fr" type="submit">保存修改</button>
+                    </div>
+                </div>
+            </form>
+            <script type="text/javascript">
+            //初始化时间
+            $('#date1').val(myDate.YYYYMMDD());
+            $('#date1').daterangepicker({
+                    startDate: moment().startOf('day'),
+                    singleDatePicker: true
+                })
+                //提交整个表单
+            $('#form1').on('valid.form', function() {
+                //$(this).serialize() 序列号表单如name=xx&age=x&sex=x
+                //发送请求
+                $.post('/path/to/file', $(this).serialize(), function(data, textStatus, xhr) {
+                    /*optional stuff to do after success */
+                });
+            })
+            </script>
+            <div class="code-pre">
+                <pre>&lt;form class=&quot;form-horizontal m-h-form&quot; id=&quot;form1&quot; data-validator-option=&quot;{theme:&#x27;bootstrap&#x27;, timely:2, stopOnError:true}&quot; action=&quot;register.php&quot;&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;label for=&quot;firstname&quot; class=&quot;col-sm-2 control-label&quot;&gt;货运代码&lt;/label&gt;
+        &lt;div class=&quot;col-sm-10 &quot;&gt;
+            &lt;input name=&quot;goodsName&quot; class=&quot;form-control&quot; type=&quot;text&quot; maxlength=&quot;10&quot; data-rule=&quot;required;id&quot; data-rule-id=&quot;[/^\d{6}$/, &#x27;请填写6位数字货运代码&#x27;]&quot; data-msg-required=&quot;请输入货运代码&quot; /&gt;
+            &lt;i class=&quot;red&quot;&gt;*&lt;/i&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;label for=&quot;firstname&quot; class=&quot;col-sm-2 control-label&quot;&gt;日期&lt;/label&gt;
+        &lt;div class=&quot;col-sm-10 &quot;&gt;
+            &lt;div class=&quot;m-icon-date form-control&quot;&gt;
+                &lt;span for=&quot;date1&quot;&gt;&lt;i class=&quot;iconfont icon-riqi&quot;&gt;&lt;/i&gt;&lt;/span&gt;
+                &lt;input id=&quot;date1&quot; bs-Datepicker type=&quot;text&quot; class=&quot;&quot; placeholder=&quot;请选择时间段&quot; readonly data-rule=&quot;required;&quot; data-msg-required=&quot;日期必填&quot; /&gt;
+            &lt;/div&gt;
+            &lt;i class=&quot;red&quot;&gt;*&lt;/i&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;label for=&quot;firstname&quot; class=&quot;col-sm-2 control-label&quot;&gt;当前位置&lt;/label&gt;
+        &lt;div class=&quot;col-sm-10 &quot;&gt;
+            &lt;select class=&quot;form-control selectpicker&quot; name=&quot;nowaddress&quot; data-rule=&quot;required&quot; data-msg-required=&quot;请选择当前位置&quot; placeholder=&quot;当前位置&quot;&gt;
+                &lt;option value=&quot;&quot;&gt;请选择&lt;/option&gt;
+                &lt;option value=&quot;1&quot;&gt;测试1&lt;/option&gt;
+                &lt;option value=&quot;2&quot;&gt;测试2&lt;/option&gt;
+                &lt;option value=&quot;3&quot;&gt;测试3&lt;/option&gt;
+                &lt;option value=&quot;4&quot;&gt;测试4&lt;/option&gt;
+            &lt;/select&gt;
+            &lt;i class=&quot;red&quot;&gt;*&lt;/i&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;label for=&quot;firstname&quot; class=&quot;col-sm-2 control-label&quot;&gt;目的地&lt;/label&gt;
+        &lt;div class=&quot;col-sm-10 &quot;&gt;
+            &lt;select class=&quot;form-control selectpicker&quot; name=&quot;lastaddress&quot; data-rule=&quot;required&quot; data-msg-required=&quot;请选择目的地&quot; placeholder=&quot;目的地&quot;&gt;
+                &lt;option value=&quot;&quot;&gt;请选择&lt;/option&gt;
+                &lt;option value=&quot;1&quot;&gt;测试1&lt;/option&gt;
+                &lt;option value=&quot;2&quot;&gt;测试2&lt;/option&gt;
+                &lt;option value=&quot;3&quot;&gt;测试3&lt;/option&gt;
+                &lt;option value=&quot;4&quot;&gt;测试4&lt;/option&gt;
+            &lt;/select&gt;
+            &lt;i class=&quot;red&quot;&gt;*&lt;/i&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;label for=&quot;firstname&quot; class=&quot;col-sm-2 control-label&quot;&gt;活动号&lt;/label&gt;
+        &lt;div class=&quot;col-sm-10 &quot;&gt;
+            &lt;input name=&quot;goodsName&quot; class=&quot;form-control&quot; type=&quot;text&quot; maxlength=&quot;10&quot;&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;label class=&quot;col-sm-2 control-label&quot;&gt;&lt;/label&gt;
+        &lt;div class=&quot;col-sm-10 clearfix &quot;&gt;
+            &lt;a href=&quot;javascript:history.go(-1);&quot; class=&quot;btn m-btn-cancel &quot;&gt;取消&lt;/a&gt;
+            &lt;button class=&quot;btn m-btn-right fr&quot; type=&quot;submit&quot;&gt;保存修改&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+//初始化时间
+$(&#x27;#date1&#x27;).val(myDate.YYYYMMDD());
+$(&#x27;#date1&#x27;).daterangepicker({
+        startDate: moment().startOf(&#x27;day&#x27;),
+        singleDatePicker: true
+    })
+    //提交整个表单
+$(&#x27;#form1&#x27;).on(&#x27;valid.form&#x27;, function() {
+    //$(this).serialize() 序列号表单如name=xx&amp;age=x&amp;sex=x
+    //发送请求
+    $.post(&#x27;/path/to/file&#x27;, $(this).serialize(), function(data, textStatus, xhr) {
+        /*optional stuff to do after success */
+    });
+})
+&lt;/script&gt;</pre>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="container text-center">
+                <p class="text-muted">2016 All rights reserved.北京志恒达科技有限公司</p>
+            </div>
+        </div>
+        <script type="text/javascript" src="scripts/jsplug/exmaples/highlight.pack.js"></script>
+        <script type="text/javascript" src="scripts/jsplug/exmaples/base.js"></script>
+        <script type="text/javascript" src="scripts/jsplug/base.js"></script>
+</body>
+
+</html>

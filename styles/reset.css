@@ -24,7 +24,7 @@ a,a:active{text-decoration: none!important;}
 .fl{float: left;}
 .center{text-align: center;}
 .middle{vertical-align: middle;}
-body,html{position: relative; width: 100%;height: 100%;}
+body,html{position: relative; width: 100%;}
 input[type=checkbox],
   input[type=radio] {
   -webkit-appearance: none;

@@ -22,7 +22,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background: #fff;
+    background: #fff!important;
 }
 
 div.login-warpper-center {
@@ -34,28 +34,14 @@ div.login-header {
     height: $num100;
     line-height: $num100;
     color: #666;
-    border-bottom: 1px solid #e7e7e7;
+    // border-bottom: 1px solid #e7e7e7;
     strong {
         position: relative;
         font-size: $num28;
         font-weight: normal;
         padding-right: $num30;
         vertical-align: middle;
-        // &:after {
-        //     content: '';
-        //     position: absolute;
-        //     right: 0;
-        //     top: 10%;
-        //     height: 80%;
-        //     border-left: 1px solid #ccc;
-        // }
     }
-    // span {
-    //     font-size: $num18;
-    //     color: #666;
-    //     margin-left: $num20;
-    //     vertical-align: middle;
-    // }
     span.logo {
         display: inline-block;
         width: $num42;
@@ -74,23 +60,25 @@ div.login-header {
     border-color: $color-err!important;
 }
 div.login-main {
-    position: absolute;
-    width: 100%;
-    top: $num100;
-    min-height: $num480;
-    bottom: $num50;
-    // background: #1ea177;
+    height: 368px;
+    padding: 100px 0;
+    // position: absolute;
+    // width: 100%;
+    // top: $num100;
+    // min-height: $num480;
+    // bottom: $num50;
+    background: #1fb5ad;
     div.login-warpper-center {
         position: relative;
         height: 100%;
     }
     div.login-fixed-height {
-        position: absolute;
-        left: 0;
-        top: 50%;
-        width: 100%;
-        height: $num370;
-        margin-top: -$num370*.5;
+        // position: absolute;
+        // left: 0;
+        // top: 50%;
+        // width: 100%;
+        height: 100%;
+        // margin-top: -$num370*.5;
         div.login-form {
             position: absolute;
             right: 0;
@@ -184,16 +172,16 @@ div.login-main {
 }
 
 div.login-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+//  position: absolute;
+//  bottom: 0;
+//  left: 0;
     width: 100%;
     height: $num50;
     line-height: $num50;
     font-size: 12px;
     text-align: center;
     color: #888;
-    border-top: 1px solid #e7e7e7;
+    // border-top: 1px solid #e7e7e7;
 }
 
 @media screen and (max-width: 1440px) {
@@ -216,10 +204,10 @@ div.login-footer {
         font-size: $num16*.8;
     }
     div.login-main {
-        top: $num100*.8;
+        // top: $num100*.8;
         div.login-fixed-height {
-            height: $num370*.8;
-            margin-top: -$num370*.5*.8;
+            // height: $num370*.8;
+            // margin-top: -$num370*.5*.8;
             div.login-form {
                 dl {
                     margin-top: $num34*.8;

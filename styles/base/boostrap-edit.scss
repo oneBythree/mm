@@ -2,39 +2,42 @@
 @import 'variable';
 //分页
 nav.m-page {
-    text-align: right;
     ul {
         margin: 0 0 20px 0;
-        a {
-            color: $main-color;
+        li:not(.page-all) {
+            a {
+                color: #333;
+            }
+            a:hover {
+                color: $link-color;
+            }
+        }
+        li.page-all {
+            a {
+                color: #333;
+                cursor: default;
+            }
+            a:hover {
+                color: #333;
+                background-color: #fff;
+            }
+        }
+        li.active {
+            a,
+            a:hover {
+                color: #fff;
+                background-color: $link-color;
+                border-color: $link-color;
+            }
         }
     }
 }
 
-//时间选择
-div.m-icon-date {
-    display: inline-block;
-    @include funcHeight(36px);
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background: #fff;
-    overflow: hidden;
-    vertical-align: middle;
-    span {
-        display: inline-block;
-        width: 28px;
-        text-align: center;
-        i.icnonfont {
-            color: $color-999;
-            font-size: $num14;
-        }
-    }
-}
 
 //按钮
 .m-btn-group {
     margin-bottom: 20px;
-    .btn.m-btn{
+    .btn.m-btn {
         margin-right: 10px;
     }
 }
@@ -49,7 +52,7 @@ div.m-icon-date {
         background: $rgba-link;
         border: none;
     }
-    i.iconfont{
+    i.iconfont {
         font-size: $num14;
         margin-right: 5px;
     }
@@ -150,7 +153,7 @@ select.m-select {
             margin-left: 5px;
         }
     }
-    .btn-group{
+    .btn-group {
         position: absolute;
         right: 100px;
         bottom: -45px;
@@ -201,102 +204,102 @@ div.modal-dialog.m-confirm {
     }
 }
 
-.sweet-alert {
-    &.lg {
-        width: 800px!important;
-        margin-left: -400px!important;
-        div.sa-table {
-            width: 100%;
-            max-height: 600px;
-            em.sa-close {
-                position: absolute;
-                display: inline-block;
-                right: -10px;
-                top: -10px;
-                width: 24px;
-                height: 24px;
-                font-size: 16px;
-                background: #cfcfcf;
-                text-align: center;
-                line-height: 24px;
-                border-radius: 50%;
-                color: #f0f0f0;
-                cursor: pointer;
-                &:hover {
-                    background: #c8c8c8;
-                    color: #fff;
-                }
-            }
-        }
-        div.sa-button-container {
-            width: 600px;
-            margin: 0 auto;
-            button {
-                font-size: 14px;
-                font-weight: normal;
-                padding: 0;
-                @include funcHeight(34px);
-                border-radius: 4px;
-            }
-            button.cancel {
-                width: 100px;
-            }
-            button.confirm {
-                width: 100px;
-                margin: 20px 10px 10px;
-            }
-        }
-    }
-    form.form-horizontal {
-        width: 600px;
-        margin: 0 auto;
-        &.look {
-            div.form-group {
-                cursor: pointer;
-                margin: 0 0 15px 0;
-                div.col-sm-10 {
-                    padding: 7px;
-                }
-                &:hover {
-                    background: #64c8af;
-                    color: #fff;
-                }
-            }
-        }
-        &.edit {
-            div.form-group {
-                text-align: left;
-                margin-bottom: 0;
-                font-size: 14px;
-                input[type="text"] {
-                    text-indent: 0;
-                    display: inline-block;
-                    font-size: 14px;
-                }
-                label.col-sm-2 {
-                    margin-top: 10px;
-                    margin-bottom: 17px;
-                }
-                .m-select-search {
-                    margin: 10px 0 17px;
-                    p {
-                        font-size: 14px;
-                        text-align: left;
-                    }
-                }
-            }
-        }
-        .select-droplist {
-            font-size: 14px;
-            input[type="text"] {
-                margin: 0;
-            }
-        }
-        li.create {
-            text-align: left;
-        }
-    }
-}
+// .sweet-alert {
+//     &.lg {
+//         width: 800px!important;
+//         margin-left: -400px!important;
+//         div.sa-table {
+//             width: 100%;
+//             max-height: 600px;
+//             em.sa-close {
+//                 position: absolute;
+//                 display: inline-block;
+//                 right: -10px;
+//                 top: -10px;
+//                 width: 24px;
+//                 height: 24px;
+//                 font-size: 16px;
+//                 background: #cfcfcf;
+//                 text-align: center;
+//                 line-height: 24px;
+//                 border-radius: 50%;
+//                 color: #f0f0f0;
+//                 cursor: pointer;
+//                 &:hover {
+//                     background: #c8c8c8;
+//                     color: #fff;
+//                 }
+//             }
+//         }
+//         div.sa-button-container {
+//             width: 600px;
+//             margin: 0 auto;
+//             button {
+//                 font-size: 14px;
+//                 font-weight: normal;
+//                 padding: 0;
+//                 @include funcHeight(34px);
+//                 border-radius: 4px;
+//             }
+//             button.cancel {
+//                 width: 100px;
+//             }
+//             button.confirm {
+//                 width: 100px;
+//                 margin: 20px 10px 10px;
+//             }
+//         }
+//     }
+//     form.form-horizontal {
+//         width: 600px;
+//         margin: 0 auto;
+//         &.look {
+//             div.form-group {
+//                 cursor: pointer;
+//                 margin: 0 0 15px 0;
+//                 div.col-sm-10 {
+//                     padding: 7px;
+//                 }
+//                 &:hover {
+//                     background: #64c8af;
+//                     color: #fff;
+//                 }
+//             }
+//         }
+//         &.edit {
+//             div.form-group {
+//                 text-align: left;
+//                 margin-bottom: 0;
+//                 font-size: 14px;
+//                 input[type="text"] {
+//                     text-indent: 0;
+//                     display: inline-block;
+//                     font-size: 14px;
+//                 }
+//                 label.col-sm-2 {
+//                     margin-top: 10px;
+//                     margin-bottom: 17px;
+//                 }
+//                 .m-select-search {
+//                     margin: 10px 0 17px;
+//                     p {
+//                         font-size: 14px;
+//                         text-align: left;
+//                     }
+//                 }
+//             }
+//         }
+//         .select-droplist {
+//             font-size: 14px;
+//             input[type="text"] {
+//                 margin: 0;
+//             }
+//         }
+//         li.create {
+//             text-align: left;
+//         }
+//     }
+// }
 
 //响应式1440以下的屏幕
 @media screen and (max-width: 1440px) {
@@ -325,11 +328,22 @@ div.modal-dialog.m-confirm {
     .btn {
         padding: 0 12px;
     }
-    select {
+    select:not(.hourselect,.minuteselect,.ampmselect) {
         @include funcHeight(28px!important);
         padding: 0 12px!important;
         &.form-control {
             font-size: $num12;
+        }
+        span.select2-container {
+            input.select2-search__field {
+                height: 28px;
+                line-height: 28px;
+            }
+            span.select2-results {
+                li.select2-results__option {
+                    padding: 4px;
+                }
+            }
         }
     }
     textarea.form-control {
@@ -339,62 +353,75 @@ div.modal-dialog.m-confirm {
         background: #fbfbfb;
         padding: 16px 0;
     }
-    .sweet-alert {
-        &:not(.lg) {
-            width: 480px*.8!important;
-            padding: 15px!important;
-            margin-left: -480px*.4!important;
-            border-radius: 4px!important;
-            .sa-icon {
-                width: 80px*.8!important;
-                height: 80px*.8!important;
-                &.sa-warning {
-                    .sa-body {
-                        height: 47px*.8!important;
-                    }
-                    .sa-dot {
-                        bottom: 10px*.8!important;
-                    }
-                }
-                &.sa-success {
-                    .sa-tip {
-                        width: 25px*.8!important;
-                        left: 14px*.8!important;
-                        top: 46px*.8!important;
-                    }
-                    .sa-long {
-                        width: 47px*.8!important;
-                        right: 8px*.8!important;
-                        top: 38px*.8!important;
-                    }
-                    .sa-placeholder {
-                        width: 80px*.8!important;
-                        height: 80px*.8!important;
-                    }
-                }
-            }
-            h2 {
-                font-size: 24px!important;
-            }
-        }
-        &.edit {
-            .form-group {
-                font-size: 12px;
-                input[type="text"] {
-                    font-size: 12px;
-                }
-            }
-            .select-droplist {
-                font-size: 12px;
-            }
-        }
-        &.lg {
-            div.sa-button-container {
-                button {
-                    font-size: 12px;
-                    @include funcHeight(28px);
-                }
-            }
-        }
+    // .sweet-alert {
+    //     &:not(.lg) {
+    //         width: 420px!important;
+    //         padding: 15px!important;
+    //         margin-left: -210px!important;
+    //         border-radius: 4px!important;
+    //         .sa-icon {
+    //             width: 80px*.8!important;
+    //             height: 80px*.8!important;
+    //             &.sa-warning {
+    //                 .sa-body {
+    //                     height: 47px*.8!important;
+    //                 }
+    //                 .sa-dot {
+    //                     bottom: 10px*.8!important;
+    //                 }
+    //             }
+    //             &.sa-success {
+    //                 .sa-tip {
+    //                     width: 25px*.8!important;
+    //                     left: 14px*.8!important;
+    //                     top: 46px*.8!important;
+    //                 }
+    //                 .sa-long {
+    //                     width: 47px*.8!important;
+    //                     right: 8px*.8!important;
+    //                     top: 38px*.8!important;
+    //                 }
+    //                 .sa-placeholder {
+    //                     width: 80px*.8!important;
+    //                     height: 80px*.8!important;
+    //                 }
+    //             }
+    //             &.sa-error {
+    //                 .sa-left,
+    //                 .sa-right {
+    //                     width: 32px;
+    //                     top: 30px;
+    //                 }
+    //             }
+    //         }
+    //         h2 {
+    //             font-size: 24px!important;
+    //         }
+    //     }
+    //     &.edit {
+    //         .form-group {
+    //             font-size: 12px;
+    //             input[type="text"] {
+    //                 font-size: 12px;
+    //             }
+    //         }
+    //         .select-droplist {
+    //             font-size: 12px;
+    //         }
+    //     }
+    //     &.lg {
+    //         div.sa-button-container {
+    //             button {
+    //                 font-size: 12px;
+    //                 @include funcHeight(28px);
+    //             }
+    //         }
+    //     }
+    // }
+}
+
+.form-inline.m-line-form{
+    .btn{
+        vertical-align: top;
     }
 }

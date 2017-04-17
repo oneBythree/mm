@@ -6,14 +6,52 @@
     <title>北京E追溯管理平台</title>
     <link rel="shortcut icon" href="images/icon2.ico">
     <link rel="stylesheet" type="text/css" href="styles/base.css">
-    <link rel="stylesheet" type="text/css" href="font/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/font_k60wxx3gt78n0zfr.css">
     <script type="text/javascript" src="scripts/jslib/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/sweetalert-dev.min.js"></script>
-    <style type="text/css">
-    .info-manager {
-        display: none;
-    }
+    <style>
+    	#sideBar{
+    		position: relative;
+    		transform: translateX(0);
+    		transition: .5s ease;
+    	}
+    	#sideBar.right{
+    		transform: translateX(-100%);
+    		transition: .5s ease;
+    	}
+    	#sideBar .right-left{
+    		position: absolute;
+    		top: 50%;
+    		right:-30px;
+    		width: 30px;
+    		height: 30px;
+    		margin-left: -15px;
+    		border-radius: 50%;
+    		border-color:#ccc;
+    		z-index: 2;
+    		color: #1fb5ad;
+    		text-align: center;
+    		line-height: 30px;
+    	}
+        #sideBar.right .right-left:before{
+            content: ">>"
+        }
+        #sideBar .right-left:before{
+             content: "<<"
+        }
+        .container-main{
+          transition: 1s ease-in;
+        }
+        .container-main.all{
+            position: relative;
+            width: 100%;
+            transition:1.4s ease-in;
+            left: -29px;
+        }
+       /* .container-main.all .tab-main{
+            padding: 10px 0!important;
+        }*/
     </style>
 </head>
 
@@ -21,6 +59,8 @@
     <div class="container-index ">
         <!-- 侧边栏 -->
         <div id="sideBar" class="sideBar">
+        	<div class="right-left">
+        	</div>
             <div class="logo-info">
                 <img src="images/logo2.png">
                 <p>北京E追溯管理平台</p>
@@ -30,7 +70,11 @@
                 <!--一级菜单-->
                 <ul id="list">
                     <li>
-                        <a href="javascript:;" class="item iframeLink list1 active" data-level="0-0-0" data-url="welcome.html"><span>追溯管理后台</span> <i class="iconfont icon-submenu"></i></a>
+                        <a href="javascript:;" class="item  list1 active" >
+                        	<i class="iconfont icon-supervise"></i>
+                        	<span>追溯管理后台</span> 
+                        	<i class="iconfont icon-submenu"></i>
+                        </a>
                         <ul class="sub1">
                             <li>
                                 <a href="javascript:;" class="item iframeLink list2" data-level="0-0-1" data-url="goods.html">
@@ -64,7 +108,7 @@
                             </li>
                         </ul>
                         <li>
-                            <a href="#" class="list1 item iframeLink" data-level="1-0-0">
+                            <a href="#" class="list1 item">
                                 <span>运营分析</span>
                                 <i class="iconfont icon-submenu"></i>
                             </a>
@@ -100,7 +144,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#" class="list1 item iframeLink" data-level="2-0-0">备案信息管理 <i class="iconfont icon-submenu"></i></a>
+                            <a href="#" class="list1 item">备案信息管理 <i class="iconfont icon-submenu"></i></a>
                             <ul class="sub1">
                                 <li><a href="#/record" class="item list2" data-level="2-0-1">商户备案<i class="iconfont icon-right-arrow fr"></i></a></li>
                                 <li><a href="#/nod" class="item list2" data-level="2-0-2">节点主体备案<i class="iconfont icon-right-arrow fr"></i></a></li>
@@ -123,12 +167,12 @@
                 <ol>
                     <li class="info clearfix">
                         <em class="test-user fl"></em>
-                        <span class="fr jsDrop">你好好好<span class="caret"></span></span>
+                        <span class="fr">你好好好<span class="caret"></span></span>
                         <div class="info-manager">
                             <a href="javascript:;">
                                 <i class="iconfont icon-setting middle"></i>
                                 <span class="middle">改用户密码</span></a>
-                            <a href="javascript:;" id="exit">
+                            <a id="exit" href="javascript:;">
                                 <i class="iconfont icon-power"></i>
                                 <span class="middle">退出系统</span>
                             </a>
@@ -143,23 +187,6 @@
     </div>
     <script type="text/javascript" src="scripts/jsplug/main.js"></script>
     <script type="text/javascript">
-
-    //个人信息弹窗
-    $('.info span.fr').on('click', function(event) {
-        if ($('.info-manager').is(':hidden')) {
-            $('.info-manager').show();
-        } else {
-            $('.info-manager').hide();
-        }
-
-    });
-
-    $(document).on('click', function(event) {
-        if (!$('.info-manager').is(':hidden') && !$(event.target).hasClass('jsDrop')) {
-            $('.info-manager').hide();
-        }
-    });
-
     // 退出弹窗
     $('#exit').on('click', function(event) {
         swal({
